@@ -1,0 +1,37 @@
+{
+	"servicerestart":"service iconik_storage_gateway restart",
+	"serviceget": "/usr/local/bin/pluginget",
+	"serviceset": "/usr/local/bin/pluginset",
+	"options": {
+        "app-id": {
+			"type": "string",
+			"name": "Application",
+			"description": "Application ID",
+            "requirerestart": true
+		},
+		"storage-id": {
+			"type": "string",
+			"name": "Storage",
+			"description": "Storage ID",
+            "requirerestart": true
+		},
+        "iconik-url": {
+			"type": "string",
+			"name": "Endpoint",
+			"description": "Base API endpoint url",
+            "requirerestart": true
+		},
+		"auth-token": {
+			"type": "string",
+			"name": "Token",
+			"description": "Auth token",
+            "requirerestart": true
+		},
+		"max-transcoding-jobs": {
+			"type": "integer",
+			"name": "Max parallel transcoding jobs",
+			"description": "Maximum allowed parallel transcoding jobs",
+			"default": 5
+		}
+	}
+}

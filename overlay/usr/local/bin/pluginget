@@ -1,0 +1,16 @@
+#! /usr/local/bin/python3.6
+
+import sys
+from configparser import ConfigParser
+
+CONFIG_PATH = '/etc/cantemo/iconik_storage_gateway/config.ini'
+
+config_var_name = sys.argv[1]
+
+config = ConfigParser()
+config.read(CONFIG_PATH)
+
+try:
+    print(config['main'][config_var_name])
+except KeyError:
+    print('')
