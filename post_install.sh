@@ -8,6 +8,9 @@ fetch https://storage.googleapis.com/harald-iconik-test/iconik_storage_gateway-1
 
 pkg add /root/iconik_storage_gateway-1.6.0.txz
 
+# Enable iconik ui
+echo "iconik_ui_enable=\"YES\"" >> /etc/rc.conf
+
 #restart services
 /usr/local/etc/rc.d/iconik_storage_gateway restart
 
