@@ -105,4 +105,4 @@ if __name__ == '__main__':
     app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
         '/static': os.path.join(os.path.dirname(__file__), 'static')
     })
-    run_simple('127.0.0.1', 8000, app, use_debugger=True, use_reloader=True)
+    run_simple('0.0.0.0', 8000, app, use_debugger=True, use_reloader=True)

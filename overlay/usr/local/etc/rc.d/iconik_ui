@@ -19,6 +19,6 @@ load_rc_config $name
 
 pidfile="/var/run/iconik_ui.pid"
 command="/usr/sbin/daemon"
-command_args="-c -f -P ${pidfile} -r /usr/local/bin/python3.6 /usr/local/www/iconik_ui/iconik"
+command_args="-c -f -P ${pidfile} -r /usr/local/bin/python3.6 /usr/local/www/iconik_ui/iconik_ui/iconik.py"
 
 run_rc_command "$1"
