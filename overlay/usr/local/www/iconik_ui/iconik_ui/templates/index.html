@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Iconik Credentials{% endblock %}
+{% block js %}
+<script>
+    function update_credentials() {
+        document.getElementById('re-enter_credentials').style.display = 'none';
+        document.getElementById('update_credentials_div').style.display = 'block';
+    }
+</script>
+{% endblock %}
+{% block body %}
+<h2>Iconik Credentials</h2>
+{% if credentials_exist %}
+<div id="re-enter_credentials">
+    <h4>Credentials have already been updated for config.ini</h4>
+    <button onclick="update_credentials()">Re-enter credentials</button>
+</div>
+{% endif %}
+<div style="display: {% if credentials_exist %}none{% else %}block{% endif %};" id="update_credentials_div">
+    <form action="update_credentials" method=post>
+        <input placeholder="App ID" type="text" name="app_id" value="{{ app_id }}" class=urlinput/><br><br>
+        <input placeholder="Auth Token" type="text" name="auth_token" value="{{ auth_token }}" class=urlinput/><br><br>
+        <input placeholder="Storage ID" type="text" name="storage_id" value="{{ storage_id }}" class=urlinput/><br><br>
+        <input type=submit value="Update credentials">
+    </form>
+</div>
+{% endblock %}
