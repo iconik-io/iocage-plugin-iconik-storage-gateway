@@ -1,5 +1,6 @@
 import os
 import re
+import subprocess
 import urllib.parse
 from werkzeug.wrappers import Request, Response
 from werkzeug.routing import Map, Rule
@@ -30,6 +31,7 @@ class IconikApp(object):
             Rule('/', endpoint='index'),
             Rule('/update_credentials', endpoint='update_credentials'),
             Rule('/credential_success', endpoint='credential_success'),
+            Rule('/failed_restart', endpoint='failed_restart'),
         ])
 
     def on_index(self, request):
@@ -54,6 +56,9 @@ class IconikApp(object):
     def on_credential_success(self, request):
         return self.render_template('credential_success.html')
 
+    def on_failed_restart(self, request):
+        return self.render_template('failed_restart.html')
+
     def on_update_credentials(self, request):
         if request.method == 'POST':
             config = self.get_config_contents()
@@ -65,8 +70,18 @@ class IconikApp(object):
                 )
 
             self.update_config_contents(config)
-            return redirect('credential_success')
+            # Let's restart /usr/local/etc/rc.d/iconik_storage_gateway
 
+            cp = subprocess.Popen(
+                ['/usr/local/etc/rc.d/iconik_storage_gateway', 'restart'],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+            cp.communicate()
+
+            if cp.returncode:
+                return redirect('failed_restart')
+            else:
+                return redirect('credential_success')
         else:
             return self.error_404()
 
