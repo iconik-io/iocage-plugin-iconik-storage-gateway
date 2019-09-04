@@ -9,7 +9,9 @@
     "lang/python36",
     "security/ca_root_nss",
     "devel/py-Jinja2",
-    "www/py-werkzeug"
+    "www/py-werkzeug",
+    "multimedia/ffmpeg",
+    "graphics/ImageMagick7"
   ],
   "packagesite": "http://pkg.FreeBSD.org/FreeBSD:11:amd64/latest",
   "fingerprints": {
