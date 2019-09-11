@@ -11,7 +11,7 @@ from werkzeug.utils import redirect
 from jinja2 import Environment, FileSystemLoader
 
 
-CONFIG_FILE_PATH = '/usr/local/cantemo/iconik_storage_gateway/config.ini'
+CONFIG_FILE_PATH = '/usr/local/etc/cantemo/iconik_storage_gateway/config.ini'
 
 
 def get_hostname(url):
