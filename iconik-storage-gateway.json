@@ -6,12 +6,7 @@
     "vnet":"on"
   },
   "pkgs": [
-    "lang/python36",
-    "security/ca_root_nss",
-    "devel/py-Jinja2",
-    "www/py-werkzeug",
-    "multimedia/ffmpeg",
-    "graphics/ImageMagick7"
+    "iconik_storage_gateway"
   ],
   "packagesite": "http://pkg.FreeBSD.org/FreeBSD:11:amd64/latest",
   "fingerprints": {
