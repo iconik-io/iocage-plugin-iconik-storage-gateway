@@ -1,19 +1,19 @@
 {
   "name": "iconik-storage-gateway",
-  "release": "11.2-RELEASE",
-  "artifact": "https://github.com/Cantemo/iocage-plugin-iconik-storage-gateway.git",
+  "release": "12.2-RELEASE",
+  "artifact": "https://github.com/iconik-io/iocage-plugin-iconik-storage-gateway.git",
   "properties": {
     "vnet":"on"
   },
   "pkgs": [
-    "lang/python36",
+    "lang/python38",
     "security/ca_root_nss",
     "devel/py-Jinja2",
     "www/py-werkzeug",
     "multimedia/ffmpeg",
     "graphics/ImageMagick7"
   ],
-  "packagesite": "http://pkg.FreeBSD.org/FreeBSD:11:amd64/latest",
+  "packagesite": "http://pkg.FreeBSD.org/${ABI}/latest",
   "fingerprints": {
 	  "iocage-plugins": [
 		  {
